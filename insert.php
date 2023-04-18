@@ -11,7 +11,7 @@ $pdo ->exec("insert into regist(family_name,last_name,family_name_kana,last_name
 <html lang="ja">
     <head>
         <meta charset="utf-8">
-        <title>keijiban</title>
+        <title>登録完了</title>
         <link rel="stylesheet" type="text/css" href="touroku.css">
     </head>
     
