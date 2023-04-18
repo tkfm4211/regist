@@ -22,7 +22,7 @@
         <main>
             
             <h1>アカウント登録確認画面</h1>
-        
+            
         <div class="confirm">
             
             <p>名前（姓）
@@ -86,9 +86,8 @@
             </p>
             
             
-            <form action="touroku.php">
-                <input type="submit" class="button1" value="戻って修正する">
-            </form>
+            <button type="button" onclick="history.back()">戻る</button>
+
             
             <form action="insert.php" method="post">
                 <input type="submit" class="button2" value="登録する">

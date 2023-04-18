@@ -22,41 +22,41 @@
         <main>
             <h1>アカウント登録画面</h1>
             
-            <form method="post" action="confirm.php">
+            <form method="post" action="confirm.php" name="touroku">
                 
                 <div>
                     <label>名前（姓）</label>
-                    <input type="text" class="text" size="35" name="family_name"  maxlength="10">
+                    <input type="text" class="text" size="35" name="family_name"  maxlength="10" pattern="[\u4E00-\u9FFF\u3040-\u309F-]*">
                 </div>
                 <br>
                 
                 <div>
                     <label>名前（名）</label>
-                    <input type="text" class="text" size="35" name="last_name"  maxlength="10">
+                    <input type="text" class="text" size="35" name="last_name"  maxlength="10" pattern="[\u4E00-\u9FFF\u3040-\u309F-]*">
                 </div>
                 <br>
             
                 <div>
                     <label>カナ（姓）</label>
-                    <input type="text" class="text" size="35" name="family_name_kana"  maxlength="10">
+                    <input type="text" class="text" size="35" name="family_name_kana"  maxlength="10" pattern="[\u30A1-\u30F6]*">
                 </div>
                 <br>
                 
                 <div>
                     <label>カナ（名）</label>
-                    <input type="text" class="text" size="35" name="last_name_kana"  maxlength="10">
+                    <input type="text" class="text" size="35" name="last_name_kana"  maxlength="10" pattern="[\u30A1-\u30F6]*">
                 </div>
                 <br>
                 
                 <div>
                     <label>メールアドレス</label>
-                    <input type="text" class="text" size="35" name="mail"  maxlength="100">
+                    <input type="text" class="text" size="35" name="mail"  maxlength="100" pattern="^[a-zA-Z0-9-@.]*$">
                 </div>
                 <br>
                 
                 <div>
                     <label>パスワード</label>
-                    <input type="text" class="text" size="35" name="password"  maxlength="10">
+                    <input type="text" class="text" size="35" name="password"  maxlength="10" pattern="^[0-9A-Za-z]+$">
                 </div>
                 <br>
                 
@@ -69,7 +69,7 @@
                 
                  <div>
                     <label>郵便番号</label>
-                    <input type="text" class="text" size="35" name="postal_code"  maxlength="7">
+                    <input type="text" class="text" size="35" name="postal_code"  maxlength="7" pattern="^[0-9]+$">
                 </div>
                 <br>
                 
@@ -129,13 +129,13 @@
                 
                 <div>
                     <label>住所（市区町村）</label>
-                    <input type="text" class="text" size="35" name="address_1"  maxlength="10">
+                    <input type="text" class="text" size="35" name="address_1"  maxlength="10"  pattern="^[\u4E00-\u9FFF\u3040-\u309F-\u30A1-\u30F60-9- ]*">
                 </div>
                 <br>
                 
                 <div>
                     <label>住所（番地）</label>
-                    <input type="text" class="text" size="35" name="address_2"  maxlength="100">
+                    <input type="text" class="text" size="35" name="address_2"  maxlength="100" pattern="^[\u4E00-\u9FFF\u3040-\u309F-\u30A1-\u30F60-9- ]*">
                 </div>
                 <br>
                 
@@ -149,7 +149,22 @@
                 <br>
                 
                 <div>
-                    <input type="submit" class="submit" value="確認する">
+                    <input type="submit" class="submit" value="確認する" onClick="return check();">
+                    
+<!--
+                    <script>
+                        function check(){
+                            if(touroku.last_name.value==""){
+                                alert("エラー");
+                                return false;
+                            }else{
+                                return true;
+                            }
+                        }
+                    
+                    
+                    </script>
+-->
                 </div>
                 
             </form>
