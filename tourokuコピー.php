@@ -4,6 +4,8 @@
         <meta charset="utf-8">
         <title>アカウント登録</title>
         <link rel="stylesheet" type="text/css" href="touroku.css">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
     </head>
     
     <body>
@@ -22,25 +24,23 @@
         <main>
             <h1>アカウント登録画面</h1>
             
-            <form method="post" action="confirm.php" name="touroku">
+            <form method="post" action="confirm.php" name="touroku" id="contactForm">
                 
                 <div>
                     <label>名前（姓）</label>
-                    <input type="text" class="text" size="35" name="family_name"  maxlength="10" pattern="[\u4E00-\u9FFF\u3040-\u309F-]*">
+                    <input type="text" class="required" size="35" name="family_name"  maxlength="10" pattern="[\u4E00-\u9FFF\u3040-\u309F-]*">
                     
-                    <?php
-                    $getfamily_name=$_POST["family_name"]
-                    if(strcmp($getfamily_name,"")==0){
-                        $strErr="エラー";
-                        echo $strErr;
-                    }
-                    ?>
+                    <div id="errplace" style="color: red;"></div>
+                    
                 </div>
                 <br>
                 
                 <div>
                     <label>名前（名）</label>
                     <input type="text" class="text" size="35" name="last_name"  maxlength="10" pattern="[\u4E00-\u9FFF\u3040-\u309F-]*">
+                    
+                    <div id="errplace" style="color: red;"></div>
+                    
                 </div>
                 <br>
             
@@ -157,26 +157,28 @@
                 <br>
                 
                 <div>
-                    <input type="submit" class="submit" value="確認する" onClick="return check();">
+                    <input type="submit" class="submit" value="確認する">
                     
-<!--
                     <script>
-                        function check(){
-                            if(touroku.last_name.value==""){
-                                alert("エラー");
-                                return false;
-                            }else{
-                                return true;
-                            }
-                        }
-                    
-                    
-                    </script>
--->
+                
+                $('form').validate({
+                    rules:{
+                        family_name:{required:true},
+                        last_name:{required:true}
+                    },
+//                    massages:{
+//                        family_name:{required:'姓エラー',},
+//                        last_name:{required:'名エラー',}
+//                    },
+                    errorPlacement:function(error,element){
+                        error.appendTo(element.data('errplace'));
+                    }
+                });
+            </script>
                 </div>
                 
             </form>
-            
+            <script type="text/javascript" src="touroku.js"></script>
         </main>
         
         <footer>
