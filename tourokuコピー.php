@@ -24,22 +24,21 @@
         <main>
             <h1>アカウント登録画面</h1>
             
-            <form method="post" action="confirm.php" name="touroku" id="contactForm">
+            <form method="post" action="confirm.php" name="touroku">
                 
                 <div>
                     <label>名前（姓）</label>
-                    <input type="text" class="required" size="35" name="family_name"  maxlength="10" pattern="[\u4E00-\u9FFF\u3040-\u309F-]*">
-                    
-                    <div id="errplace" style="color: red;"></div>
+                    <input type="text" class="required" size="35" name="family_name"  maxlength="10" data-errmessage="#family_name_error" pattern="[\u4E00-\u9FFF\u3040-\u309F-]*">
+                    <div id="family_name_error" style="color: red;"></div>
                     
                 </div>
                 <br>
                 
                 <div>
                     <label>名前（名）</label>
-                    <input type="text" class="text" size="35" name="last_name"  maxlength="10" pattern="[\u4E00-\u9FFF\u3040-\u309F-]*">
+                    <input type="text" class="text" size="35" name="last_name"  maxlength="10" data-errmessage="#last_name_error" pattern="[\u4E00-\u9FFF\u3040-\u309F-]*">
                     
-                    <div id="errplace" style="color: red;"></div>
+                    <div id="last_name_error" style="color: red;"></div>
                     
                 </div>
                 <br>
@@ -159,21 +158,21 @@
                 <div>
                     <input type="submit" class="submit" value="確認する">
                     
-                    <script>
-                
-                $('form').validate({
-                    rules:{
-                        family_name:{required:true},
-                        last_name:{required:true}
-                    },
-//                    massages:{
-//                        family_name:{required:'姓エラー',},
-//                        last_name:{required:'名エラー',}
-//                    },
-                    errorPlacement:function(error,element){
-                        error.appendTo(element.data('errplace'));
-                    }
-                });
+                <script>
+                    $('form').validate({
+                        rules:{
+                            family_name:{required:true},
+                            last_name
+                            :{required:true}
+                        },
+                        messages:{
+                            family_name:{required:'姓エラー',},
+                            last_name:{required:'名エラー',}
+                        },
+                        errorPlacement:function(error,element){
+                            error.appendTo(element.data('errmessage'));
+                        }
+                    });
             </script>
                 </div>
                 
