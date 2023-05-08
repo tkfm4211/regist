@@ -5,7 +5,7 @@ $pdo=new PDO("mysql:dbname=tt;host=localhost;","root","");
 
 $password_h= password_hash($_POST['password'],PASSWORD_DEFAULT);
 
-$pdo ->exec("insert into regist(family_name,last_name,family_name_kana,last_name_kana,mail,password,gender,postal_code,prefecture,address_1,address_2,authority)values('".$_POST['family_name']."','".$_POST['last_name']."','".$_POST['family_name_kana']."','".$_POST['last_name_kana']."','".$_POST['mail']."','.$password_h','".$_POST['gender']."','".$_POST['postal_code']."','".$_POST['prefecture']."','".$_POST['address_1']."','".$_POST['address_2']."','".$_POST['authority']."');");
+$pdo ->exec("insert into regist(family_name,last_name,family_name_kana,last_name_kana,mail,password,gender,postal_code,prefecture,address_1,address_2,authority,delete_flag,registered_time)values('".$_POST['family_name']."','".$_POST['last_name']."','".$_POST['family_name_kana']."','".$_POST['last_name_kana']."','".$_POST['mail']."','.$password_h','".$_POST['gender']."','".$_POST['postal_code']."','".$_POST['prefecture']."','".$_POST['address_1']."','".$_POST['address_2']."','".$_POST['authority']."','".$_POST['delete_flag']."','".$_POST['registered_time']."');");
 
 ?>
 
@@ -37,7 +37,7 @@ $pdo ->exec("insert into regist(family_name,last_name,family_name_kana,last_name
             
         </div>
         
-        <form action="touroku.php">
+        <form action="regist.php">
             <input type="submit" class="button1" value="TOPページに戻る">
         </form>
         

@@ -89,7 +89,7 @@
             <button type="button" onclick="history.back()">戻る</button>
 
             
-            <form action="insert.php" method="post">
+            <form action="regist_complete.php" method="post">
                 <input type="submit" class="button2" value="登録する">
                 
                 <input type="hidden" value="<?php echo $_POST['family_name']; ?>" name="family_name">
@@ -115,6 +115,15 @@
                 <input type="hidden" value="<?php echo $_POST['address_2']; ?>" name="address_2">
                 
                 <input type="hidden" value="<?php echo $_POST['authority']; ?>" name="authority">
+                
+                <input type="hidden" value="0" name="delete_flag">
+                
+                
+                
+                <input type="hidden" value="<?php
+                                            $registered_time=new DateTime();
+                                            echo $registered_time->format('YmdHis');
+                                            ?>" name="registered_time">
                 
             </form>
             

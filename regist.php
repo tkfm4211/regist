@@ -24,7 +24,7 @@
         <main>
             <h1>アカウント登録画面</h1>
             
-            <form method="post" action="confirm.php" name="touroku">
+            <form method="post" action="regist_confirm.php" name="touroku">
                 
                 <div>
                     <label>名前（姓）</label>
@@ -45,25 +45,37 @@
             
                 <div>
                     <label>カナ（姓）</label>
-                    <input type="text" class="text" size="35" name="family_name_kana"  maxlength="10" pattern="[\u30A1-\u30F6]*">
+                    <input type="text" class="text" size="35" name="family_name_kana"  maxlength="10" data-errmessage="#family_name_kana_error" pattern="[\u30A1-\u30F6]*">
+                    
+                    <div id="family_name_kana_error" style="color: red;"></div>
+                    
                 </div>
                 <br>
                 
                 <div>
                     <label>カナ（名）</label>
-                    <input type="text" class="text" size="35" name="last_name_kana"  maxlength="10" pattern="[\u30A1-\u30F6]*">
+                    <input type="text" class="text" size="35" name="last_name_kana"  maxlength="10" data-errmessage="#last_name_kana_error" pattern="[\u30A1-\u30F6]*">
+                    
+                    <div id="last_name_kana_error" style="color: red;"></div>
+                    
                 </div>
                 <br>
                 
                 <div>
                     <label>メールアドレス</label>
-                    <input type="text" class="text" size="35" name="mail"  maxlength="100" pattern="^[a-zA-Z0-9-@.]*$">
+                    <input type="text" class="text" size="35" name="mail"  maxlength="100" data-errmessage="#mail_error" pattern="^[a-zA-Z0-9-@.]*$">
+                    
+                    <div id="mail_error" style="color: red;"></div>
+                    
                 </div>
                 <br>
                 
                 <div>
                     <label>パスワード</label>
-                    <input type="text" class="text" size="35" name="password"  maxlength="10" pattern="^[0-9A-Za-z]+$">
+                    <input type="text" class="text" size="35" name="password"  maxlength="10" data-errmessage="#password_error" pattern="^[0-9A-Za-z]+$">
+                    
+                    <div id="password_error" style="color: red;"></div>
+                    
                 </div>
                 <br>
                 
@@ -76,13 +88,16 @@
                 
                  <div>
                     <label>郵便番号</label>
-                    <input type="text" class="text" size="35" name="postal_code"  maxlength="7" pattern="^[0-9]+$">
+                    <input type="text" class="text" size="35" name="postal_code"  maxlength="7" data-errmessage="#postal_code_error" pattern="^[0-9]+$">
+                     
+                     <div id="postal_code_error" style="color: red;"></div>
+                     
                 </div>
                 <br>
                 
                 <div>
                     <label>住所（都道府県）</label>
-                    <select name="prefecture">
+                    <select name="prefecture" data-errmessage="#prefecture_error">
                         <option value="" selected></option>
                         <option value="北海道">北海道</option>
                         <option value="青森県">青森県</option>
@@ -132,17 +147,27 @@
                         <option value="鹿児島県">鹿児島県</option>
                         <option value="沖縄県">沖縄県</option>
                     </select>
+                    
+                    <div id="prefecture_error" style="color: red;"></div>
+                    
                 </div>
+                <br>
                 
                 <div>
                     <label>住所（市区町村）</label>
-                    <input type="text" class="text" size="35" name="address_1"  maxlength="10"  pattern="^[\u4E00-\u9FFF\u3040-\u309F-\u30A1-\u30F60-9- ]*">
+                    <input type="text" class="text" size="35" name="address_1"  maxlength="10" data-errmessage="#address_1_error" pattern="^[\u4E00-\u9FFF\u3040-\u309F-\u30A1-\u30F60-9- ]*">
+                    
+                    <div id="address_1_error" style="color: red;"></div>
+                    
                 </div>
                 <br>
                 
                 <div>
                     <label>住所（番地）</label>
-                    <input type="text" class="text" size="35" name="address_2"  maxlength="100" pattern="^[\u4E00-\u9FFF\u3040-\u309F-\u30A1-\u30F60-9- ]*">
+                    <input type="text" class="text" size="35" name="address_2"  maxlength="100" data-errmessage="#address_2_error" pattern="^[\u4E00-\u9FFF\u3040-\u309F-\u30A1-\u30F60-9- ]*">
+                    
+                    <div id="address_2_error" style="color: red;"></div>
+                    
                 </div>
                 <br>
                 
@@ -162,12 +187,27 @@
                     $('form').validate({
                         rules:{
                             family_name:{required:true},
-                            last_name
-                            :{required:true}
+                            last_name:{required:true},
+                            family_name_kana:{required:true},
+                            last_name_kana:{required:true},
+                            mail:{required:true},
+                            password:{required:true},
+                            postal_code:{required:true},
+                            prefecture:{required:true},
+                            address_1:{required:true},
+                            address_2:{required:true}
                         },
                         messages:{
-                            family_name:{required:'姓エラー',},
-                            last_name:{required:'名エラー',}
+                            family_name:{required:'名前（姓）が未入力です。',},
+                            last_name:{required:'名前（名）が未入力です。',},
+                            family_name_kana:{required:'カナ（姓）が未入力です。',},
+                            last_name_kana:{required:'カナ（名）が未入力です。',},
+                            mail:{required:'メールアドレスが未入力です。',},
+                            password:{required:'パスワードが未入力です。',},
+                            postal_code:{required:'郵便番号が未入力です。',},
+                            prefecture:{required:'住所（都道府県）が未入力です。',},
+                            address_1:{required:'住所（市区町村）が未入力です。',},
+                            address_2:{required:'住所（番地）が未入力です。',},
                         },
                         errorPlacement:function(error,element){
                             error.appendTo(element.data('errmessage'));
