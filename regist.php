@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="touroku.css">
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
     </head>
     
     <body>
@@ -28,7 +29,7 @@
                 
                 <div>
                     <label>名前（姓）</label>
-                    <input type="text" class="required" size="35" name="family_name"  maxlength="10" data-errmessage="#family_name_error" pattern="[\u4E00-\u9FFF\u3040-\u309F-]*">
+                    <input type="text" class="required" size="35" name="family_name"  maxlength="10" pattern="[\u4E00-\u9FFF\u3040-\u309F-]*" data-errmessage="#family_name_error">
                     <div id="family_name_error" style="color: red;"></div>
                     
                 </div>
@@ -198,16 +199,26 @@
                             address_2:{required:true}
                         },
                         messages:{
-                            family_name:{required:'名前（姓）が未入力です。',},
-                            last_name:{required:'名前（名）が未入力です。',},
-                            family_name_kana:{required:'カナ（姓）が未入力です。',},
-                            last_name_kana:{required:'カナ（名）が未入力です。',},
-                            mail:{required:'メールアドレスが未入力です。',},
-                            password:{required:'パスワードが未入力です。',},
-                            postal_code:{required:'郵便番号が未入力です。',},
-                            prefecture:{required:'住所（都道府県）が未入力です。',},
-                            address_1:{required:'住所（市区町村）が未入力です。',},
-                            address_2:{required:'住所（番地）が未入力です。',},
+                            family_name:{required:'名前（姓）が未入力です。',
+                                        pattern:'指定された形式で入力してください。'},
+                            last_name:{required:'名前（名）が未入力です。',
+                                      pattern:'指定された形式で入力してください。'},
+                            family_name_kana:{required:'カナ（姓）が未入力です。',
+                                             pattern:'指定された形式で入力してください。'},
+                            last_name_kana:{required:'カナ（名）が未入力です。',
+                                           pattern:'指定された形式で入力してください。'},
+                            mail:{required:'メールアドレスが未入力です。',
+                                 pattern:'指定された形式で入力してください。'},
+                            password:{required:'パスワードが未入力です。',
+                                     pattern:'指定された形式で入力してください。'},
+                            postal_code:{required:'郵便番号が未入力です。',
+                                        pattern:'指定された形式で入力してください。'},
+                            prefecture:{required:'住所（都道府県）が未入力です。',
+                                       pattern:'指定された形式で入力してください。'},
+                            address_1:{required:'住所（市区町村）が未入力です。',
+                                      pattern:'指定された形式で入力してください。'},
+                            address_2:{required:'住所（番地）が未入力です。',
+                                      pattern:'指定された形式で入力してください。'},
                         },
                         errorPlacement:function(error,element){
                             error.appendTo(element.data('errmessage'));
@@ -217,7 +228,7 @@
                 </div>
                 
             </form>
-            <script type="text/javascript" src="touroku.js"></script>
+
         </main>
         
         <footer>

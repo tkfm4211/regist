@@ -40,8 +40,7 @@ header ul li{
     width: 650px%;
 }
 
-.submit{
-    background-color: darkslategray;
+.submit{background-color: darkslategray;
     color: white;
     font-weight: bold;
 }
