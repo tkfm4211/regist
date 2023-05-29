@@ -30,17 +30,21 @@ $pdo ->exec("insert into regist(family_name,last_name,family_name_kana,last_name
         </ul>
         </header>
         
+        <div class="kanryou">
         <h1>アカウント登録完了画面</h1>
+        </div>
         
         <div class="confirm">
             <p>登録完了しました。</p>
             
         </div>
         
+        <div class="back">
         <form action="regist.php">
             <input type="submit" class="button1" value="TOPページに戻る">
         </form>
-        
+        </div>
+            
         <footer>
         Copyright D.I.works|D.I.blog is the one which provides A to Z about programming
         </footer>

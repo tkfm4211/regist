@@ -14,27 +14,12 @@ header ul li{
     line-height: 7vw;
 }
 
-
-
-.form p{text-align: left;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    border-left: 4px red solid;
-    background-color: darkgray;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 15px;
-    width: 200px;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.form{margin: 0 auto;
+main{margin: 0 auto;
     padding-left: 15px;
     padding-top: 5px;
     padding-bottom: 5px;
+    text-align: center;
     color: black;
-    background-color: whitesmoke;
     border: 3px #ebebeb solid;
     border-radius: 10px;
     width: 650px%;
@@ -43,8 +28,41 @@ header ul li{
 .submit{background-color: darkslategray;
     color: white;
     font-weight: bold;
+    margin-bottom: 15px;
 }
 
+.regi{margin-bottom: 10px;
+}
+
+.kanryou h1{font-size: 20px;
+}
+
+.confirm{font-size: 70px;
+    text-align: center;
+    margin-top: 140px;
+    margin-bottom: 140px;
+}
+
+.back{text-align: center;
+}
+
+.back form .button1{font-size: 20px;
+    width: 300px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.regi{float: left;
+    text-align: center;
+}
+
+.button2{float: left;
+    margin-left: 20px;
+}
+
+.aaa{display: inline-flex;
+    text-align: center;
+}
 
 footer{
     clear: left;

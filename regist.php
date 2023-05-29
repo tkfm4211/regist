@@ -89,7 +89,7 @@
                 
                  <div>
                     <label>郵便番号</label>
-                    <input type="text" class="text" size="35" name="postal_code"  maxlength="7" data-errmessage="#postal_code_error" pattern="^[0-9]+$">
+                    <input type="text" class="text" size="35" name="postal_code"  maxlength="7" minlength="7" data-errmessage="#postal_code_error" pattern="^[0-9]+$">
                      
                      <div id="postal_code_error" style="color: red;"></div>
                      
@@ -191,7 +191,8 @@
                             last_name:{required:true},
                             family_name_kana:{required:true},
                             last_name_kana:{required:true},
-                            mail:{required:true},
+                            mail:{required:true,
+                                 email:true},
                             password:{required:true},
                             postal_code:{required:true},
                             prefecture:{required:true},
@@ -208,11 +209,13 @@
                             last_name_kana:{required:'カナ（名）が未入力です。',
                                            pattern:'指定された形式で入力してください。'},
                             mail:{required:'メールアドレスが未入力です。',
-                                 pattern:'指定された形式で入力してください。'},
+                                 pattern:'指定された形式で入力してください。',
+                                 email:'指定された形式で入力してください。'},
                             password:{required:'パスワードが未入力です。',
                                      pattern:'指定された形式で入力してください。'},
                             postal_code:{required:'郵便番号が未入力です。',
-                                        pattern:'指定された形式で入力してください。'},
+                                        minlength:'半角数字7文字で入力してください。',
+                                        pattern:'指定された形式で入力してください。',},
                             prefecture:{required:'住所（都道府県）が未入力です。',
                                        pattern:'指定された形式で入力してください。'},
                             address_1:{required:'住所（市区町村）が未入力です。',

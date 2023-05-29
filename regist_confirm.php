@@ -23,12 +23,12 @@
             
             <h1>アカウント登録確認画面</h1>
             
-        <div class="confirm">
+        <div class="kakunin">
             
             <p>名前（姓）
                 <?php echo $_POST['family_name']; ?>
             </p>
-            
+                
             <p>名前（名）
                 <?php echo $_POST['last_name']; ?>
             </p>
@@ -85,8 +85,9 @@
                 echo array_search($_POST['authority'],$authority); ?>
             </p>
             
+            <div class="aaa">
             
-            <button type="button" onclick="history.back()">戻る</button>
+            <button class="regi" type="button" onclick="history.back()">戻る</button>
 
             
             <form action="regist_complete.php" method="post">
@@ -121,11 +122,14 @@
                 
                 
                 <input type="hidden" value="<?php
+                                            date_default_timezone_set('Asia/Tokyo');
                                             $registered_time=new DateTime();
                                             echo $registered_time->format('YmdHis');
                                             ?>" name="registered_time">
                 
             </form>
+                
+            </div>
             
         </div>
             
