@@ -18,6 +18,7 @@
             <li>D.I.Blogについて</li>
             <li>登録フォーム</li>
             <li>問い合わせ</li>
+            <li><a href= "list.php" >アカウント一覧</a></li>
             <li>その他</li>
         </ul>
         </header>
