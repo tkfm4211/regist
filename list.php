@@ -23,16 +23,71 @@
         </ul>
         </header>
             <h2>アカウント一覧画面</h2>
-            <?php
-            try{
-            $pdo=new PDO("mysql:dbname=tt;host=localhost;","root","");
-            $stmt = $pdo->prepare(
+        <?php
+        try{
+        $pdo=new PDO("mysql:dbname=tt;host=localhost;","root","");
+        $sql="select * from regist order by id desc";
+        $stmt = $pdo->query($sql);
+        }catch(PDOException $e){
+        $abc='<font color="RED">エラーが発生したためアカウント一覧を表示できません。</font>';
+        echo $abc;
+        }
+        ?>
+        
+        <div class="table">    
+            <table>
+                <tr>
+                    <td>id</td>
+                    <td>名前（姓）</td>
+                    <td>名前（名）</td>
+                    <td>カナ（姓）</td>
+                    <td>カナ（名）</td>
+                    <td>メールアドレス</td>
+                    <td>性別</td>
+                    <td>アカウント権限</td>
+                    <td>削除フラグ</td>
+                    <td>登録日時</td>
+                    <td>更新日時</td>
+                    <td colspan="2">操作</td>
+                </tr>
+                <tr>
+                <?php foreach($stmt as $abc):?>
+                    <td><?php echo $abc["id"]?></td>
+                    <td><?php echo $abc["family_name"]?></td>
+                    <td><?php echo $abc["last_name"]?></td>
+                    <td><?php echo $abc["family_name_kana"]?></td>
+                    <td><?php echo $abc["last_name_kana"]?></td>
+                    <td><?php echo $abc["mail"]?></td>
+                    <td><?php $ge=str_replace(["0","1"],["男","女"],$abc);
+                    echo $ge["gender"]?></td>
+                    <td><?php $au=str_replace(["0","1"],["一般","管理者"],$abc);
+                    echo $au["authority"]?></td>
+                    <td><?php $de=str_replace(["0","1"],["有効","無効"],$abc);
+                    echo $de["delete_flag"]?></td>
+                    <td><?php $re=strtotime($abc["registered_time"]);
+                        echo date('Y/m/d',$re);?></td>
+                    <td><?php $up=strtotime($abc["update_time"]);
+                        if($abc["update_time"]==null){
+                            echo "";
+                        }else{
+                            echo date('Y/m/d',$up);
+                        }?></td>
+                    <td>
+                        <form action="update.php">
+                            <input type="submit" class="button1" value="更新">
+                        </form>
+                    </td>
+                    <td>
+                        <form action="delete.php">
+                            <input type="submit" class="button1" value="削除">
+                        </form>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </table>
+            <br>
+        </div>
             
-            };
-            ?>
-           
-        
-        
         <footer>
         Copyright D.I.works|D.I.blog is the one which provides A to Z about programming
         </footer>

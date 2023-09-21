@@ -58,6 +58,12 @@ main{margin: 0 auto;
     text-align: center;
 }
 
+.table table,td{border:1px solid;
+    border-collapse: collapse;
+    padding: 3px;
+    text-align: center;
+}
+
 footer{
     clear: left;
     width: 100%;
