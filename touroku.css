@@ -64,6 +64,10 @@ main{margin: 0 auto;
     text-align: center;
 }
 
+.delete{padding-top: 100px;
+    padding-bottom: 100px;
+}
+
 footer{
     clear: left;
     width: 100%;
