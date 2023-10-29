@@ -77,7 +77,20 @@
                             echo date('Y/m/d',$up);
                         }?></td>
                     <td>
-                        <form method="post" action="update.php" name="update"> 
+                        <form method="post" action="update.php" name="update">
+                        <input type="hidden" name="id" value="<?php echo $abc["id"]?>">
+                        <input type="hidden" name="family_name" value="<?php echo $abc["family_name"]?>">
+                        <input type="hidden" name="last_name" value="<?php echo $abc["last_name"]?>">
+                        <input type="hidden" name="family_name_kana" value="<?php echo $abc["family_name_kana"]?>">
+                        <input type="hidden" name="last_name_kana" value="<?php echo $abc["last_name_kana"]?>">
+                        <input type="hidden" name="mail" value="<?php echo $abc["mail"]?>">
+                        <input type="hidden" name="password" value="<?php echo $abc["password"]?>">
+                        <input type="hidden" name="gender" value="<?php echo $abc["gender"]?>">
+                        <input type="hidden" name="postal_code" value="<?php echo $abc["postal_code"]?>">
+                        <input type="hidden" name="prefecture" value="<?php echo $abc["prefecture"]?>">
+                        <input type="hidden" name="address_1" value="<?php echo $abc["address_1"]?>">
+                        <input type="hidden" name="address_2" value="<?php echo $abc["address_2"]?>">
+                        <input type="hidden" name="authority" value="<?php echo $abc["authority"]?>">
                         <input type="submit" class="button1" value="更新">
                         </form>
                     </td>

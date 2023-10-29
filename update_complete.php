@@ -4,13 +4,13 @@ mb_internal_encoding("utf8");
 try{
 $pdo=new PDO("mysql:dbname=tt;host=localhost;","root","");
 
-$stmt=$pdo->prepare('UPDATE regist SET delete_flag="1",update_time=:update_time WHERE id=:id');
+$stmt=$pdo->prepare('UPDATE regist SET family_name=:family_name,last_name=:last_name,family_name_kana=:family_name_kana,last_name_kana=:last_name_kana,mail=:mail,password=:password,gender=:gender,postal_code=:postal_code,prefecture=:prefecture,address_1=:address_1,address_2=:address_2,authority=:authority,update_time=:update_time WHERE id=:id');
 
-$stmt->execute(array(':id' => $_POST['id'],':update_time'=>$_POST['update_time']));
+$stmt->execute(array(':id'=>$_POST['id'],':family_name'=>$_POST['family_name'],':last_name'=>$_POST['last_name'],':family_name_kana'=>$_POST['family_name_kana'],'last_name_kana'=>$_POST['last_name_kana'],':mail'=>$_POST['mail'],':password'=>$_POST['password'],':gender'=>$_POST['gender'],':postal_code'=>$_POST['postal_code'],':prefecture'=>$_POST['prefecture'],':address_1'=>$_POST['address_1'],':address_2'=>$_POST['address_2'],':authority'=>$_POST['authority'],':update_time'=>$_POST['update_time']));
     
-$abc='削除完了しました。';
+$abc='更新完了しました。';
  } catch(PDOException $e){
-$abc='<font color="RED">エラーが発生したためアカウント削除できません。</font>';
+$abc='<font color="RED">エラーが発生したためアカウント更新できません。</font>';
 }
 ?>
 
@@ -18,7 +18,7 @@ $abc='<font color="RED">エラーが発生したためアカウント削除で�
 <html lang="ja">
     <head>
         <meta charset="utf-8">
-        <title>削除完了</title>
+        <title>更新完了</title>
         <link rel="stylesheet" type="text/css" href="touroku.css">
     </head>
     
@@ -36,7 +36,7 @@ $abc='<font color="RED">エラーが発生したためアカウント削除で�
         </header>
         
         <div class="kanryou">
-        <h1>アカウント削除完了画面</h1>
+        <h1>アカウント更新完了画面</h1>
         </div>
         
         <div class="confirm">
