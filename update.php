@@ -7,6 +7,13 @@
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
         <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
+        <?php
+        $key = openssl_random_pseudo_bytes(16);
+        $iv = openssl_random_pseudo_bytes(16);
+        $encrypt=base64_decode($_POST['password']);
+
+        $decrypt_value=openssl_decrypt($_POST['password'],'AES-256-CBC',$key,OPENSSL_RAW_DATA,$iv);
+        ?>
     </head>
     
     <body>
@@ -26,7 +33,7 @@
             <div class="kou">
             
                 <h3>アカウント更新画面</h3>
-                
+            
             </div>
             
             <div class="aaa">
@@ -65,7 +72,7 @@
                     
                 </div>
                 <br>
-                
+                <?php var_dump($decrypt_value);?>
                 <div>
                     <label>名前（名）</label>
                     <input type="text" class="text" size="35" name="last_name"  maxlength="10" value="<?php echo $_POST['last_name']; ?>" data-errmessage="#last_name_error" pattern="[\u4E00-\u9FFF\u3040-\u309F-]*">
@@ -104,7 +111,7 @@
                 
                 <div>
                     <label>パスワード</label>
-                    <input type="text" class="text" size="35" name="password"  maxlength="10" value="<?php echo $_POST['password']; ?>" data-errmessage="#password_error" pattern="^[0-9A-Za-z]+$">
+                    <input type="password" class="text" size="35" name="password"  maxlength="10" value="<?php echo $decrypt_value; ?>" data-errmessage="#password_error" pattern="^[0-9A-Za-z]+$">
                     
                     <div id="password_error" style="color: red;"></div>
                     

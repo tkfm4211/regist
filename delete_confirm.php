@@ -34,7 +34,7 @@
             <button class="regi" type="button" onclick="history.back()">前に戻る</button>
                 
             <form action="delete_complete.php" method="post">
-                <input type="submit" class="button2" value="確認する">
+                <input type="submit" class="button2" value="削除する">
                 
                 <input type="hidden" value="<?php echo $_POST['id']; ?>" name="id">
                 

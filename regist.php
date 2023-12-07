@@ -74,7 +74,7 @@
                 
                 <div>
                     <label>パスワード</label>
-                    <input type="text" class="text" size="35" name="password"  maxlength="10" data-errmessage="#password_error" pattern="^[0-9A-Za-z]+$">
+                    <input type="password" class="text" size="35" name="password"  maxlength="10" data-errmessage="#password_error" pattern="^[0-9A-Za-z]+$">
                     
                     <div id="password_error" style="color: red;"></div>
                     
